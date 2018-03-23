@@ -1,0 +1,79 @@
+#landing-container{
+	display: grid;
+	grid-template-columns: auto auto;
+}
+#left{
+	display:grid;
+	border-style: ridge;
+	border-radius: 10%;
+	height:100vh;
+	/*box-shadow:20px 20px 50px 10px pink inset;*/
+	box-shadow:5px 5px 25px grey;  
+	background-color: rgb(222,11,11);
+
+}
+#right{
+	display:grid;
+	border-style: ridge;
+	border-radius: 10%;
+	height:100vh;
+	/*box-shadow:20px 20px 50px 10px pink inset;*/
+	box-shadow:5px 5px 25px grey;  
+	background-color: rgb(222,11,11);
+ 
+}
+#logo{
+	position: absolute;
+	margin: 0 45%;
+}
+#view{
+	display:none;
+}
+.overlay{
+
+}
+.fixedHead{
+
+}
+.grid{
+
+}
+.column{
+
+}
+.roster{
+
+}
+#selection{
+
+}
+#pName{
+
+}
+#tags{
+
+}
+#pokeSelect{
+
+}
+#profile{
+
+}
+#stats{
+
+}
+#abilities{
+
+}
+.close-icon{
+
+}
+#add{
+	display:none;
+}
+#catalog{
+
+}
+.pokeThumbnail{
+
+}
