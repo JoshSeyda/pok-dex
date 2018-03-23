@@ -16,7 +16,7 @@ $.ajax({
 			pokePic = `<img class="pokePic" src="${data.sprites.front_default}">`,
 			startingXP = data.base_experience;
 
-		let pokeTitle = `<h1 id="pokeTitle">${data.name} is Pokémon number ${data.id} with starting XP of ${startingXP}</h1>`,
+		let pokeTitle = `<h1 id="pokeTitle">${name} is Pokémon number ${pokeNum} with starting XP of ${startingXP}</h1>`,
 			pokeBlock = $(pokeTitle).append(pokePic)
 		$('form').append(pokeBlock);
 			for(j=0;j<data.stats.length;j++){
