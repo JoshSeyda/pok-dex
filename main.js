@@ -2,8 +2,8 @@ console.log("connected");
 $(document).ready(function(){
 
 	class Trainer{
-		constructor(monster){
-			this.monster = monster;
+		constructor(){
+		
 		}
 	}
 
@@ -16,13 +16,17 @@ $(document).ready(function(){
 		
 	}
 }
+let ashKetchum = new Trainer();
+let counter = 0;
 
 function createPokemon(pokemon){
+	console.log('ajax');
 	$.ajax({
 	url: `https://pokeapi.co/api/v2/pokemon/${pokemon}/` , 
 	type: "GET" , 
 	dataType: "JSON",
 	success: function(data){
+		console.log('test');
 		//link datapoints to variables
 		let name = data.name ,
 			title = data.name ,
@@ -51,8 +55,12 @@ function createPokemon(pokemon){
 				abil.push(`${ability}`);
 			}
 			
-		 title = new Pokemon(name, pic, stat, abil);
-			console.log(title);
+		 ashKetchum[pokemon] = new Pokemon(name, pic, stat, abil);
+		 	console.log(pokemon);
+			counter++;
+			if(counter===3){
+				console.log(ashKetchum);
+			}
 	},
 	error: function(error){
 		console.log(error);
@@ -62,6 +70,12 @@ function createPokemon(pokemon){
 createPokemon('nidoking');
 createPokemon('haunter');
 createPokemon('mewtwo');
+
+
+
+
 });
 
-
+let render = function(){
+	
+}
