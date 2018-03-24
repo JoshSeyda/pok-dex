@@ -27,6 +27,9 @@ console.log("connected");
 		this.stats = stats , 
 		this.abilities = abilities ;	
 	}
+	stringRender(){
+		return `hp: ${this.stats.hp} attack: ${this.stats.attck} defense: ${this.stats.dfns} speed: ${this.stats.spd}`;
+	}
 	
 }
 
@@ -77,6 +80,17 @@ function createPokemon(pokemon){
 		if(counter===3){
 			ashKetchum.all();
 			console.log(ashKetchum);
+
+			let render = function(){
+				for (let i = 0; i < ashKetchum.roster.length; i++){
+					let choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
+						choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
+						choiceStats = `<section class="rosterLeft">${ashKetchum.roster[i].stringRender()}</section>`,
+						choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;
+					$('#selection').append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
+				}
+			}
+			render();
 		}
 	},
 	error: function(error){
@@ -93,11 +107,5 @@ createPokemon('mewtwo');
 
 
 
-let render = function(){
-	let choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
-		choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
-		choiceStats = `<section class="rosterLeft">${ashKetchum.roster[i].stats}</section>`,
-		choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;
-}
 
 
