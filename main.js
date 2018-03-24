@@ -1,9 +1,22 @@
 console.log("connected");
-$(document).ready(function(){
+
 
 	class Trainer{
-		constructor(){
-		
+		constructor(name){
+		this.name = name;
+		this.roster = [];
+		}
+
+		all(){
+			console.log(this.roster);
+		}
+
+		get(pokemon){
+			for (let i = 0; i < this.roster.length; i++){
+				if(this.roster[i].name === pokemon){
+					return this.roster[i];
+				}
+			}
 		}
 	}
 
@@ -12,11 +25,13 @@ $(document).ready(function(){
 		this.name = name ,
 		this.pic = pic ,
 		this.stats = stats , 
-		this.abilities = abilities ;
-		
+		this.abilities = abilities ;	
 	}
+	
 }
-let ashKetchum = new Trainer();
+
+let ashKetchum = new Trainer('ashKetchum');
+console.log(ashKetchum);
 let counter = 0;
 
 function createPokemon(pokemon){
@@ -43,24 +58,26 @@ function createPokemon(pokemon){
 			spd = data.stats[0].stat.name ,
 			spdLvl = data.stats[0].base_stat;
 
-			//set the stat object
-			stat.hp = hpLvl;	
-			stat.attck = attckLvl;
-			stat.dfns = dfnsLVL;
-			stat.spd = spdLvl;	
+		//set the stat object
+		stat.hp = hpLvl;	
+		stat.attck = attckLvl;
+		stat.dfns = dfnsLVL;
+		stat.spd = spdLvl;	
 
-			//set the ability array
-			for(i=0;i< data.abilities.length; i++){
-				let ability = data.abilities[i].ability.name;
-				abil.push(`${ability}`);
-			}
-			
-		 ashKetchum[pokemon] = new Pokemon(name, pic, stat, abil);
-		 	console.log(pokemon);
-			counter++;
-			if(counter===3){
-				console.log(ashKetchum);
-			}
+		//set the ability array
+		for(i=0;i< data.abilities.length; i++){
+			let ability = data.abilities[i].ability.name;
+			abil.push(`${ability}`);
+		}
+
+		 title = new Pokemon(name, pic, stat, abil);
+		 ashKetchum.roster.push(title);
+		 ashKetchum.get(title);
+		counter++;
+		if(counter===3){
+			ashKetchum.all();
+			console.log(ashKetchum);
+		}
 	},
 	error: function(error){
 		console.log(error);
@@ -74,8 +91,13 @@ createPokemon('mewtwo');
 
 
 
-});
+
 
 let render = function(){
-	
+	let choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
+		choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
+		choiceStats = `<section class="rosterLeft">${ashKetchum.roster[i].stats}</section>`,
+		choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;
 }
+
+
