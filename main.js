@@ -83,11 +83,14 @@ function createPokemon(pokemon){
 
 			let render = function(){
 				for (let i = 0; i < ashKetchum.roster.length; i++){
-					let choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
+					let container = `<div id="container"></div>` ,
+						choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
+						choiceMenu = `<li><a href="">${ashKetchum.roster[i].name}</a></li>`
 						choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
 						choiceStats = `<section class="rosterLeft">${ashKetchum.roster[i].stringRender()}</section>`,
-						choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;
-					$('#selection').append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
+						choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;						
+					$('#selection').append(container);
+					$('#container').append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
 				}
 			}
 			render();
@@ -101,6 +104,11 @@ function createPokemon(pokemon){
 createPokemon('nidoking');
 createPokemon('haunter');
 createPokemon('mewtwo');
+$('#myForm').submit(function(){
+	event.preventDefault();
+})
+
+
 
 
 

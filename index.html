@@ -3,40 +3,28 @@
 <head>
 	<title>Pokédex</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
 </head>
 <body>
-<!--Left side content-->
 <div id="view" class="overlay">
 	<nav class="fixedHead">
-		<h2>Trainer Name</h2>
-		<button>ADD</button>
+		<h2 id="trainerName">Ash Ketchum</h2>
+		<form id="myForm" method="get">
+  <div>
+    <label for="poke">What Pokémon do you want to see?</label>
+    <input name="poke" id="poke">
+  </div>
+  <div>
+    <button id="button">Find my Pokémon!</button>
+  </div>
+</form>
 	</nav>
      <div class="grid">      
-       <div class="column">
-       		<section class="roster">
-       			<ul>
-       				<li></li>
-       			</ul>
-       		</section>
        		<section id="selection">
-       			<header id="pName"><h3>Pokémon Name</h3></header>
-       			<aside id="tags">
-       				<h4>Pokémon Number</h4>
-       				<h4>Pokémon Type</h4>
-       			</aside>
-       			<img src="" id="pokeSelect">
-       			<section id="profile">Profile</section>
-       			<section id="stats">Stats</section>
-       			<section id="abilities">Abilities</section>
-       		</section>
-       </div>         
-     </div><!--End Grid-->
-     <div class="close-icon">
-        <div></div>
-        <div></div>
-      </div> 
+       			
+       		</section>            
+     </div>
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
