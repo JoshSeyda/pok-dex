@@ -77,20 +77,20 @@ function createPokemon(pokemon){
 		 ashKetchum.roster.push(title);
 		 ashKetchum.get(title);
 		counter++;
-		if(counter===3){
+		if(counter === 3){
 			ashKetchum.all();
 			console.log(ashKetchum);
 
 			let render = function(){
+				let container = `<div class="container"></div>`;
+				$('#selection').append(container);
 				for (let i = 0; i < ashKetchum.roster.length; i++){
-					let container = `<div id="container"></div>` ,
-						choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
+					let choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
 						choiceMenu = `<li><a href="">${ashKetchum.roster[i].name}</a></li>`
 						choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
 						choiceStats = `<section class="rosterLeft">${ashKetchum.roster[i].stringRender()}</section>`,
-						choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;						
-					$('#selection').append(container);
-					$('#container').append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
+						choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;
+					$('.container').append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
 				}
 			}
 			render();
