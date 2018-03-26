@@ -1,51 +1,46 @@
-#landing-container{
-	display: grid;
-	grid-template-columns: auto auto;
+body{
+	background-image: url('photos/pattern0.png');
 }
-#left{
-	display:grid;
-	border-style: ridge;
-	border-radius: 10%;
-	height:100vh;
-	/*box-shadow:20px 20px 50px 10px pink inset;*/
-	box-shadow:5px 5px 25px grey;  
-	background-color: rgb(222,11,11);
 
-}
-#right{
-	display:grid;
-	border-style: ridge;
-	border-radius: 10%;
-	height:100vh;
-	/*box-shadow:20px 20px 50px 10px pink inset;*/
-	box-shadow:5px 5px 25px grey;  
-	background-color: rgb(222,11,11);
- 
-}
-#logo{
-	position: absolute;
-	margin: 0 45%;
-}
 #view{
-	display:none;
+	display: inline-grid;
+	background-image: '/photos/pattern1.png';
 }
 .overlay{
 
 }
 .fixedHead{
-
+	position:fixed;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto;
+	background-color: white;
+	border:1px solid black;
+	width:100%;
+	margin:0 auto;
+}
+#trainerName{
+	
+}
+#add{
+	display:inline-block;
 }
 .grid{
-
+	margin-top:35%;
+	position:relative;
+	display:grid;
+	width:100%;
+	grid-template-columns: auto;
 }
-.column{
 
-}
-.roster{
-
-}
 #selection{
-
+	display:grid;
+	grid-template-columns: auto auto auto;
+}
+#constainer{
+	display:inline-grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto;
+	margin:0 auto;
 }
 #pName{
 
@@ -67,9 +62,6 @@
 }
 .close-icon{
 
-}
-#add{
-	display:none;
 }
 #catalog{
 
