@@ -83,23 +83,25 @@ function createPokemon(pokemon){
 				for (let i = 0; i < ashKetchum.roster.length; i++){
 					let container = `<div id="pokeCard${i}" class="carousel-item red white-text"></div>`, 
 						choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
-						choiceMenu = `<li><a href="">${ashKetchum.roster[i].name}</a></li>`
+						choiceBlock = `<div></div>`,
 						choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
-						choiceStats = `<div class="rosterLeft">${ashKetchum.roster[i].stringRender()}</div>`,
-						choiceAbil = `<div class="rosterRight">${ashKetchum.roster[i].abilities}</div>`;
+						choiceStats = `<p class="white-text">${ashKetchum.roster[i].stringRender()}</p>`,
+						choiceAbil = `<p class="white-text">${ashKetchum.roster[i].abilities}</p>`;
 					
 						if(i===0){$('.carousel-item').attr('href', '#one!');}
 						else if (i===1){$('.carousel-item').attr('href', '#two!');}
 						else if (i===2){$('.carousel-item').attr('href', '#three!');}
 						else{//donothing!!!
 						}
-					
+					$(choiceBlock).append(choicePic).append(choiceStats).append(choiceAbil);
 					$('.carousel.carousel-slider.center').append(container);
-					$(`#pokeCard${i}`).append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
+					$(`#pokeCard${i}`).append(choiceBanner).append(choiceBlock);
 					   $('.carousel.carousel-slider').carousel({
 							    fullWidth: true,
-							    indicators: true
+							    indicators: true,
+							    dist: 0
 							  });
+
 				}
 			}
 			render();

@@ -7,14 +7,25 @@ body{
 	background-image: '/photos/pattern1.png';
 }
 .rosterRight{
-	display: inline-block;
+	display: show;
 }
 .rosterLeft{
-	display: inline-block;
+	display: show;
 
 }
+.rosterPic{
+	height:200px%;
+	
+}
+.tabs-content.carousel .carousel-item { height: 100%; }
 .overlay{
 
+}
+.carousel-item{
+	height:50%;
+}
+.white-text{
+	min-height:30%;
 }
 .fixedHead{
 	position:fixed;
@@ -49,9 +60,7 @@ body{
 	grid-template-rows: auto;
 	margin:0 auto;
 }
-.carousel-fixed-item{
-	background-color: red;
-}
+
 #pName{
 
 }
