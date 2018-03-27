@@ -1,6 +1,5 @@
 console.log("connected");
-
-
+			
 	class Trainer{
 		constructor(name){
 		this.name = name;
@@ -80,36 +79,56 @@ function createPokemon(pokemon){
 		if(counter === 3){
 			ashKetchum.all();
 			console.log(ashKetchum);
-
 			let render = function(){
-				let container = `<div class="container"></div>`;
-				$('#selection').append(container);
 				for (let i = 0; i < ashKetchum.roster.length; i++){
-					let choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
+					let container = `<div id="pokeCard${i}" class="carousel-item red white-text"></div>`, 
+						choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
 						choiceMenu = `<li><a href="">${ashKetchum.roster[i].name}</a></li>`
 						choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
-						choiceStats = `<section class="rosterLeft">${ashKetchum.roster[i].stringRender()}</section>`,
-						choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;
-					$('.container').append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
+						choiceStats = `<div class="rosterLeft">${ashKetchum.roster[i].stringRender()}</div>`,
+						choiceAbil = `<div class="rosterRight">${ashKetchum.roster[i].abilities}</div>`;
+					
+						if(i===0){$('.carousel-item').attr('href', '#one!');}
+						else if (i===1){$('.carousel-item').attr('href', '#two!');}
+						else if (i===2){$('.carousel-item').attr('href', '#three!');}
+						else{//donothing!!!
+						}
+					
+					$('.carousel.carousel-slider.center').append(container);
+					$(`#pokeCard${i}`).append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
+					   $('.carousel.carousel-slider').carousel({
+							    fullWidth: true,
+							    indicators: true
+							  });
 				}
 			}
 			render();
-		}
-	},
+			
+	}},
 	error: function(error){
 		console.log(error);
 	}
 	})
+
 }
 createPokemon('nidoking');
 createPokemon('haunter');
 createPokemon('mewtwo');
 $('#myForm').submit(function(){
 	event.preventDefault();
+	// let searchTerm = $('#poke').val();
+	// searchTerm = searchTerm.toLowerCase();
+	// createPokemon(searchTerm);
+	// let choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
+	// 					choiceMenu = `<li><a href="">${ashKetchum.roster[i].name}</a></li>`
+	// 					choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
+	// 					choiceStats = `<section class="rosterLeft">${ashKetchum.roster[i].stringRender()}</section>`,
+	// 					choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;
+	// 				$('.container').append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
 })
 
 
-
+ 
 
 
 
