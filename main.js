@@ -121,6 +121,7 @@ function createPokemon(pokemon) {
 createPokemon('nidoking');
 createPokemon('haunter');
 createPokemon('mewtwo');
-$('#myForm').submit(function() {
-    event.preventDefault();
+$(document).ready(function() {
+    $('.modal').modal();
+    $('#modal1').modal('open');
 });
