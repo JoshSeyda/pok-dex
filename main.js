@@ -87,7 +87,7 @@ function createPokemon(pokemon) {
                 console.log(ashKetchum);
                 let render = function() {
                     for (let i = 0; i < ashKetchum.roster.length; i++) {
-                        let card = `<div class="card col s12 m6 l4" id="pokeCard${i}">
+                        let card = `<div class="col s12 m6 l3 z-depth-5"><div class="card">
 						<div class="card-image waves-effect waves-block waves-light">
 						  <img class="activator" src="${ashKetchum.roster[i].pic}">
 						</div>
@@ -95,15 +95,16 @@ function createPokemon(pokemon) {
 						  <span class="card-title activator grey-text text-darken-4"><h4>${ashKetchum.roster[i].name}</h4><i class="material-icons right medium">insert_chart</i></span>
 						</div>
 						<div class="card-reveal">
-						  <span class="card-title grey-text text-darken-4"><h3>${ashKetchum.roster[i].name}</h3><i class="material-icons right">close</i></span>
+						  <span class="card-title grey-text text-darken-4"><h4>${ashKetchum.roster[i].name}</h4><i class="material-icons right">close</i></span>
 						 	<h4>Stats</h4> 
 						  <h4>${ashKetchum.roster[i].statsRender()}</h4>
 						  <h4>Abilities</h4>
 						  <h4>${ashKetchum.roster[i].abilitiesRender()}</h4>
 						</div>
+					  </div>
 					  </div>`;
 
-                        $('.container').append(card);
+                        $('.row').append(card);
 
                     }
                 }
