@@ -26,10 +26,13 @@ class Pokemon {
             this.stats = stats,
             this.abilities = abilities;
     }
-    stringRender() {
-        return `hp: ${this.stats.hp} attack: ${this.stats.attck} defense: ${this.stats.dfns} speed: ${this.stats.spd}`;
+    statsRender() {
+        return `hp: ${this.stats.hp} <br> attack: ${this.stats.attck}<br> defense: ${this.stats.dfns}<br> speed: ${this.stats.spd}<br>`;
     }
+    abilitiesRender() {
+        return `${this.abilities.toString(", ")}`;
 
+    }
 }
 
 let ashKetchum = new Trainer('ashKetchum');
@@ -72,28 +75,31 @@ function createPokemon(pokemon) {
                 abil.push(`${ability}`);
             }
 
+            // move pokemon object to trainer
             title = new Pokemon(name, pic, stat, abil);
             ashKetchum.roster.push(title);
             ashKetchum.get(title);
             counter++;
 
             //waits for ajax to finish, then manipulate DOM
-            if (counter === 3) {
+            if (counter >= 3) {
                 ashKetchum.all();
                 console.log(ashKetchum);
                 let render = function() {
                     for (let i = 0; i < ashKetchum.roster.length; i++) {
-                        let card = `<div class="card" id="pokeCard${i}">
+                        let card = `<div class="card col s12 m6 l4" id="pokeCard${i}">
 						<div class="card-image waves-effect waves-block waves-light">
 						  <img class="activator" src="${ashKetchum.roster[i].pic}">
 						</div>
 						<div class="card-content">
-						  <span class="card-title activator grey-text text-darken-4">${ashKetchum.roster[i].name}<i class="material-icons right">details</i></span>
+						  <span class="card-title activator grey-text text-darken-4"><h4>${ashKetchum.roster[i].name}</h4><i class="material-icons right medium">insert_chart</i></span>
 						</div>
 						<div class="card-reveal">
-						  <span class="card-title grey-text text-darken-4">${ashKetchum.roster[i].name}<i class="material-icons right">close</i></span>
-						  <p>${ashKetchum.roster[i].stringRender()}</p>
-						  <p>${ashKetchum.roster[i].abilities}</p>
+						  <span class="card-title grey-text text-darken-4"><h3>${ashKetchum.roster[i].name}</h3><i class="material-icons right">close</i></span>
+						 	<h4>Stats</h4> 
+						  <h4>${ashKetchum.roster[i].statsRender()}</h4>
+						  <h4>Abilities</h4>
+						  <h4>${ashKetchum.roster[i].abilitiesRender()}</h4>
 						</div>
 					  </div>`;
 
