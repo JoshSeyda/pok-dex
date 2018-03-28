@@ -87,19 +87,19 @@ function createPokemon(pokemon) {
                 console.log(ashKetchum);
                 let render = function() {
                     for (let i = 0; i < ashKetchum.roster.length; i++) {
-                        let card = `<div class="col s12 m6 l3 z-depth-5"><div class="card">
+                        let card = `<div class="col s12 m6 l4 z-depth-5"><div class="card">
 						<div class="card-image waves-effect waves-block waves-light">
 						  <img class="activator" src="${ashKetchum.roster[i].pic}">
 						</div>
 						<div class="card-content">
-						  <span class="card-title activator grey-text text-darken-4"><h4>${ashKetchum.roster[i].name}</h4><i class="material-icons right medium">insert_chart</i></span>
+						  <span class="card-title activator grey-text text-darken-4">${ashKetchum.roster[i].name}<i class="material-icons right small">insert_chart</i></span>
 						</div>
 						<div class="card-reveal">
-						  <span class="card-title grey-text text-darken-4"><h4>${ashKetchum.roster[i].name}</h4><i class="material-icons right">close</i></span>
-						 	<h4>Stats</h4> 
-						  <h4>${ashKetchum.roster[i].statsRender()}</h4>
-						  <h4>Abilities</h4>
-						  <h4>${ashKetchum.roster[i].abilitiesRender()}</h4>
+						  <span class="card-title grey-text text-darken-4">${ashKetchum.roster[i].name}<i class="material-icons right">close</i></span>
+						 	<p>Stats</p> 
+						  <p>${ashKetchum.roster[i].statsRender()}</p>
+						  <p>Abilities</p>
+						  <p>${ashKetchum.roster[i].abilitiesRender()}</p>
 						</div>
 					  </div>
 					  </div>`;
@@ -123,13 +123,4 @@ createPokemon('haunter');
 createPokemon('mewtwo');
 $('#myForm').submit(function() {
     event.preventDefault();
-    // let searchTerm = $('#poke').val();
-    // searchTerm = searchTerm.toLowerCase();
-    // createPokemon(searchTerm);
-    // let choiceBanner =`<h1>${ashKetchum.roster[i].name}</h1>`,
-    // 					choiceMenu = `<li><a href="">${ashKetchum.roster[i].name}</a></li>`
-    // 					choicePic = `<img class="rosterPic" src="${ashKetchum.roster[i].pic}">`,
-    // 					choiceStats = `<section class="rosterLeft">${ashKetchum.roster[i].stringRender()}</section>`,
-    // 					choiceAbil = `<section class="rosterRight">${ashKetchum.roster[i].abilities}</section>`;
-    // 				$('.container').append(choiceBanner).append(choicePic).append(choiceStats).append(choiceAbil);
-})
+});
