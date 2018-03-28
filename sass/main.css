@@ -1,0 +1,20 @@
+nav {
+  background-color: color("amber", "darken-4");
+}
+
+nav .nav-wrapper {
+  background-color: color("amber", "darken-4");
+}
+
+.container .row {
+  margin: 5%;
+}
+
+.material-icons {
+  margin: 0 auto;
+}
+
+i.right {
+  margin-left: 10px;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,9 +1,20 @@
 .grid {}
 
-.container {}
+.container {
+    .row {
+        margin: 5%;
+    }
+}
 
 .card {
-    .card-image {}
     .card-content {}
     .card-reveal {}
+}
+
+.material-icons {
+    margin: 0 auto;
+}
+
+i.right {
+    margin-left: 10px;
 }
