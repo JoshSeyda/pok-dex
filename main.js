@@ -82,7 +82,7 @@ function createPokemon(pokemon) {
             counter++;
 
             //waits for ajax to finish, then manipulate DOM
-            if (counter >= 3) {
+            if (counter === 3) {
                 ashKetchum.all();
                 console.log(ashKetchum);
                 let render = function() {
@@ -111,6 +111,31 @@ function createPokemon(pokemon) {
                 render();
 
             }
+            if (counter > 3) {
+                let index = ashKetchum.roster.length - 1;
+                console.log(index);
+                let render = function() {
+                    let card = `<div class="col s12 m6 l4 z-depth-5"><div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="${ashKetchum.roster[index].pic}">
+                        </div>
+                        <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">${ashKetchum.roster[index].name}<i class="material-icons right small">insert_chart</i></span>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">${ashKetchum.roster[index].name}<i class="material-icons right">close</i></span>
+                            <p>Stats</p> 
+                        <p>${ashKetchum.roster[index].statsRender()}</p>
+                        <p>Abilities</p>
+                        <p>${ashKetchum.roster[index].abilitiesRender()}</p>
+                        </div>
+                        </div>
+                        </div>`;
+
+                    $('.row').append(card);
+                }
+                render();
+            }
         },
         error: function(error) {
             console.log(error);
@@ -124,4 +149,11 @@ createPokemon('mewtwo');
 $(document).ready(function() {
     $('.modal').modal();
     $('#modal1').modal('open');
+    $('form').on('submit', function() {
+        console.log("form!!!!")
+        event.preventDefault();
+        let name = $('input[type=search]').val();
+        console.log(name);
+        createPokemon(name);
+    });
 });
