@@ -1,9 +1,14 @@
-nav {
-  background-color: color("amber", "darken-4");
+#modal1 {
+  max-height: 90%;
 }
 
-nav .nav-wrapper {
-  background-color: color("amber", "darken-4");
+.modal-content img {
+  max-width: 30%;
+}
+
+nav form {
+  width: 25%;
+  margin-right: 0;
 }
 
 .container .row {
@@ -16,5 +21,9 @@ nav .nav-wrapper {
 
 i.right {
   margin-left: 10px;
+}
+
+body {
+  background-image: url("../photos/pattern0.png");
 }
 /*# sourceMappingURL=main.css.map */

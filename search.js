@@ -1,70 +1,72 @@
+$('form').on('submit', function() {
+    console.log("form!!!!")
+    let name = $('input[type=search]').val();
+    console.log(name);
+    let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${name}/`;
+    $.ajax({
+        url: pokeUrl,
+        type: "GET",
+        dataType: "JSON",
+        success: function(data) {
+            console.log('test');
 
+            //link datapoints to variables
+            let name = data.name,
+                title = data.name,
+                pic = data.sprites.front_default,
+                xP = data.base_experience,
+                stat = {},
+                abil = [];
+            hp = data.stats[5].stat.name,
+                hpLvl = data.stats[5].base_stat,
+                attck = data.stats[4].stat.name,
+                attckLvl = data.stats[4].base_stat,
+                dfns = data.stats[3].stat.name,
+                dfnsLVL = data.stats[3].base_stat,
+                spd = data.stats[0].stat.name,
+                spdLvl = data.stats[0].base_stat;
 
+            //set the stat object
+            stat.hp = hpLvl;
+            stat.attck = attckLvl;
+            stat.dfns = dfnsLVL;
+            stat.spd = spdLvl;
 
-$('#myForm').submit(function(){
-	event.preventDefault();
-	let name = $('#poke').val() ,
-		userInput = name.toLowerCase(),
-		pokeUrl = `https://pokeapi.co/api/v2/pokemon/${userInput}/`
-$.ajax({
-	url: pokeUrl , 
-	type: "GET" , 
-	dataType: "JSON",
-	success: function(data){
-		let name = data.name ,
-			pokeNum = data.id ,
-			pokePic = `<img class="pokePic" src="${data.sprites.front_default}">`,
-			startingXP = data.base_experience;
+            //set the ability array
+            for (i = 0; i < data.abilities.length; i++) {
+                let ability = data.abilities[i].ability.name;
+                abil.push(`${ability}`);
+            }
 
-		let pokeTitle = `<h1 id="pokeTitle">${name} is Pokémon number ${pokeNum} with starting XP of ${startingXP}</h1>`,
-			pokeBlock = $(pokeTitle).append(pokePic)
-		$('form').append(pokeBlock);
-			for(j=0;j<data.stats.length;j++){
-				let statName = data.stats[j].stat.name ,
-				initialStat = data.stats[j].base_stat;
-				$(pokeBlock).append(`<h3 class="stats">${name}'s starting ${statName} level is ${initialStat}</h3>`);
-			}
-			for(k=0; k < data.moves.length; k++){
-				let moveName = data.moves[k].move.name ,
-					moveLVL = data.moves[k].version_group_details[0].level_learned_at;
-					$(pokeBlock).append(`<h4 class="moves">${moveName} at level ${moveLVL}</h4>`);
-			}
-			for(l=0; l < data.types.length; l++){
-				let pokeType = data.types[l].type.name;
-				console.log(`${name} is ${pokeType} type of Pokémon!`);
-				$(pokeBlock).append(`${name} is ${pokeType} type of Pokémon!`)
-			}
-		},
-	error: function(error){
-		console.log(error);
-	}
-})
-});	
-// console.log(data);
-		// console.log(data.name); 
-		// console.log(data.stats[0].stat.name);
-		// console.log(data.stats[0].effort);
-		// console.log(data.stats[0].base_stat);
-		// console.log(data.moves[0].move.name);
-		// console.log(data.moves[0].version_group_details[0].level_learned_at);
-		// console.log(data.sprites.front_default);
-		// console.log(data.id);
-		// console.log(data.base_experience);
-		// console.log(data.types[0].type.name);
+            // move pokemon object to trainer
+            title = new Pokemon(name, pic, stat, abil);
+            ashKetchum.roster.push(title);
+            ashKetchum.get(title);
+            let render = function() {
+                let card = `<div class="col s12 m6 l4 z-depth-5"><div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+					  <img class="activator" src="${pic}">
+					</div>
+					<div class="card-content">
+					  <span class="card-title activator grey-text text-darken-4">${name}<i class="material-icons right small">insert_chart</i></span>
+					</div>
+					<div class="card-reveal">
+					  <span class="card-title grey-text text-darken-4">${name}<i class="material-icons right">close</i></span>
+						 <p>Stats</p> 
+					  <p>${stat.statsRender()}</p>
+					  <p>Abilities</p>
+					  <p>${abil.abilitiesRender()}</p>
+					</div>
+				  </div>
+				  </div>`;
 
+                $('.row').append(card);
+            }
+            render();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    })
+});
