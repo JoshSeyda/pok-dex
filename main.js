@@ -1,5 +1,3 @@
-console.log("connected");
-
 class Trainer {
     constructor(name) {
         this.name = name;
@@ -36,7 +34,6 @@ class Pokemon {
 }
 
 let ashKetchum = new Trainer('ashKetchum');
-console.log(ashKetchum);
 let counter = 0;
 
 function createPokemon(pokemon) {
@@ -53,8 +50,8 @@ function createPokemon(pokemon) {
                 pic = data.sprites.front_default,
                 xP = data.base_experience,
                 stat = {},
-                abil = [];
-            hp = data.stats[5].stat.name,
+                abil = [],
+                hp = data.stats[5].stat.name,
                 hpLvl = data.stats[5].base_stat,
                 attck = data.stats[4].stat.name,
                 attckLvl = data.stats[4].base_stat,
@@ -151,13 +148,48 @@ function createPokemon(pokemon) {
                 let elem = $('.carousel');
                 let instance = M.Carousel.getInstance(elem);
                 instance.set(index);
+                if (counter == 5) {
+                    let modal = ` <div id="modal2" class="modal"><div class="modal-content">
+                    <img src="photos/FireRed_LeafGreen_Professor_Oak.png">
+                    <p>You still have lots to do. </p>
+                    <p>Go into every patch of grass you see and look for Pokémon!</p>
+                </div>
+                <div class="modal-footer">
+                    <audio controls="controls" autoplay>
+                            <source src="audio/palettetown.mp3">
+                            Your browser does not support the <code>audio</code> element.
+                            </audio>
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                          </div>
+                      </div>`;
+                    $('#modalContainer').append(modal);
+                    $('#modal2').modal();
+                    $('#modal2').modal('open');
+                }
+                if (counter == 7) {
+                    let modal = ` <div id="modal3" class="modal"><div class="modal-content">
+                    <img src="photos/FireRed_LeafGreen_Professor_Oak.png">
+                    <p>Good, it's apparent that you're trying hard! </p>
+                    <p>I've given one of my Aides an Itemfinder. Be sure to collect it!</p>
+                </div>
+                <div class="modal-footer">
+                    <audio controls="controls" autoplay>
+                            <source src="audio/pokemon-gym.mp3">
+                            Your browser does not support the <code>audio</code> element.
+                            </audio>
+                              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                          </div>
+                      </div> `;
+                    $('#modalContainer').append(modal);
+                    $('#modal3').modal();
+                    $('#modal3').modal('open');
+                }
             }
         },
         error: function(error) {
             console.log(error);
         }
     })
-
 }
 createPokemon('nidoking');
 createPokemon('haunter');
@@ -166,7 +198,6 @@ $(document).ready(function() {
     $('.modal').modal();
     $('#modal1').modal('open');
     $('form').on('submit', function() {
-        console.log("form!!!!")
         event.preventDefault();
         let name = $('input[type=search]').val();
         console.log(name);

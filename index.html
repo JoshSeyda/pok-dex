@@ -32,29 +32,26 @@
         </div>
     </nav>
     <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <img src="photos/FireRed_LeafGreen_Professor_Oak.png">
-            <p>Hello there! Welcome to the world of Pokémon! My name is Oak! People call me the Pokémon Prof! This world is inhabited by creatures called Pokémon! For some people, Pokémon are pets. Other use them for fights. Myself… I study Pokémon as a
-                profession. How is your Pokédex coming? Here, let me take a look!</p>
-        </div>
-        <div class="modal-footer">
-            <audio controls="controls" autoplay>
+    <div id="modalContainer">
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <img src="photos/FireRed_LeafGreen_Professor_Oak.png">
+                <p>Hello there! Welcome to the world of Pokémon!</p>
+                <p> My name is Oak! People call me the Pokémon Prof!</p>
+                <p> This world is inhabited by creatures called Pokémon!</p>
+                <p> For some people, Pokémon are pets. Other use them for fights.</p>
+                <p> Myself… I study Pokémon as a profession. </p>
+                <p>How is your Pokédex coming? Here, let me take a look!</p>
+            </div>
+            <div class="modal-footer">
+                <audio controls="controls" autoplay>
                     <source src="audio/professor oak.mp3">
                 Your browser does not support the <code>audio</code> element.
               </audio>
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <audio controls="controls" class="col s12 center">
-                    <source src="audio/108-victory (vs wild pokemon).mp3">
-                    Your browser does not support the <code>audio</code> element.
-                </audio>
-        </div>
-    </div>
-
     <div class="grid">
         <div class="container">
             <div class="carousel">
@@ -72,7 +69,7 @@
 
     <!-- HomeBrew -->
     <script src="main.js"></script>
-    <!-- <script src="search.js"></script> -->
+
 </body>
 
 </html>
