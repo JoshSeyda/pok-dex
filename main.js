@@ -87,7 +87,15 @@ function createPokemon(pokemon) {
                 console.log(ashKetchum);
                 let render = function() {
                     for (let i = 0; i < ashKetchum.roster.length; i++) {
-                        let card = `<div class="col s12 m6 l4 z-depth-5"><div class="card">
+                        let reference;
+                        if (i === 0) {
+                            reference = "#one!";
+                        } else if (i === 1) {
+                            reference = "#two!";
+                        } else if (i === 1) {
+                            reference = "#three!";
+                        } else {};
+                        let card = `<div class="carousel-item z-depth-5" href="${reference}"><div class="card">
 						<div class="card-image waves-effect waves-block waves-light">
 						  <img class="activator" src="${ashKetchum.roster[i].pic}">
 						</div>
@@ -104,18 +112,18 @@ function createPokemon(pokemon) {
 					  </div>
 					  </div>`;
 
-                        $('.row').append(card);
+                        $('.carousel').append(card);
 
                     }
                 }
                 render();
-
+                $('.carousel').carousel();
             }
             if (counter > 3) {
                 let index = ashKetchum.roster.length - 1;
                 console.log(index);
                 let render = function() {
-                    let card = `<div class="col s12 m6 l4 z-depth-5"><div class="card">
+                    let card = `<div class="carousel-item z-depth-5"><div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="${ashKetchum.roster[index].pic}">
                         </div>
@@ -132,7 +140,7 @@ function createPokemon(pokemon) {
                         </div>
                         </div>`;
 
-                    $('.row').append(card);
+                    $('.carousel').append(card);
                 }
                 render();
             }
