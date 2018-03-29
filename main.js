@@ -80,6 +80,7 @@ function createPokemon(pokemon) {
             ashKetchum.roster.push(title);
             ashKetchum.get(title);
             counter++;
+            let futureRef = ["#one!", "#two!", "#three!", "#four!", "#five!", "#six!", "#seven!", "#eight!", "#nine!", "#ten!", "#eleven!", "#twelve!"];
 
             //waits for ajax to finish, then manipulate DOM
             if (counter === 3) {
@@ -89,11 +90,11 @@ function createPokemon(pokemon) {
                     for (let i = 0; i < ashKetchum.roster.length; i++) {
                         let reference;
                         if (i === 0) {
-                            reference = "#one!";
+                            reference = futureRef[i];
                         } else if (i === 1) {
-                            reference = "#two!";
-                        } else if (i === 1) {
-                            reference = "#three!";
+                            reference = futureRef[i];
+                        } else if (i === 2) {
+                            reference = futureRef[i];
                         } else {};
                         let card = `<div class="carousel-item z-depth-5" href="${reference}"><div class="card">
 						<div class="card-image waves-effect waves-block waves-light">
@@ -122,8 +123,9 @@ function createPokemon(pokemon) {
             if (counter > 3) {
                 let index = ashKetchum.roster.length - 1;
                 console.log(index);
+                console.log(futureRef[index]);
                 let render = function() {
-                    let card = `<div class="carousel-item z-depth-5"><div class="card">
+                    let card = `<div class="carousel-item z-depth-5" href="${futureRef[index]}"><div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="${ashKetchum.roster[index].pic}">
                         </div>
@@ -143,6 +145,10 @@ function createPokemon(pokemon) {
                     $('.carousel').append(card);
                 }
                 render();
+                $('.carousel').carousel();
+                // let elem = $('.carousel');
+                // let instance = M.Carousel.getInstance(elem);
+                // instance.set(index);
             }
         },
         error: function(error) {
