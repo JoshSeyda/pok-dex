@@ -23,7 +23,7 @@
  * Display Relevant information about Pokémon
 
 ## Code Example
-###### 
+###### This is the basic JavaScript Class Structure
 ```javascript
 class Trainer {
     constructor(name) {
