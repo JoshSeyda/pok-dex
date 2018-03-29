@@ -30,7 +30,7 @@ class Pokemon {
         return `hp: ${this.stats.hp} <br> attack: ${this.stats.attck}<br> defense: ${this.stats.dfns}<br> speed: ${this.stats.spd}<br>`;
     }
     abilitiesRender() {
-        return `${this.abilities.toString(", ")}`;
+        return `${this.abilities.join(", ")}`;
 
     }
 }
@@ -145,10 +145,12 @@ function createPokemon(pokemon) {
                     $('.carousel').append(card);
                 }
                 render();
-                $('.carousel').carousel();
-                // let elem = $('.carousel');
-                // let instance = M.Carousel.getInstance(elem);
-                // instance.set(index);
+                $('.carousel').carousel({
+                    numVisible: ashKetchum.roster.length
+                });
+                let elem = $('.carousel');
+                let instance = M.Carousel.getInstance(elem);
+                instance.set(index);
             }
         },
         error: function(error) {
