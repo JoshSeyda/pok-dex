@@ -8,19 +8,19 @@
 ## Build Status
 ###### At the moment, this project is moving toward some of my Post-MVP goals. 
 ###### Some features I am currently working out for Post-MVP deployment are...
-###### * Dynamically generate trainer name from user input in the Professor Oak Modal
-###### * Implement local storage of API content in the browser's cookies while the user is on page
-###### * an additional page to sort Pokémon from the API by type, and then add them to your trainer's roster
+ * Dynamically generate trainer name from user input in the Professor Oak Modal
+ * Implement local storage of API content in the browser's cookies while the user is on page
+ * an additional page to sort Pokémon from the API by type, and then add them to your trainer's roster
 ## Code Style
 ######  My compiled CSS is extremely brief because Materialize does so much styling out-of-the-box, this is extremely helpful, but at times limiting. It took me an inordinate amount of time to make sure that elements I was styling and manipulating in the DOM did not conflict with all of the properties inherited from Materialize. This is also the first time I've used SCSS in a full project, so thankfully for me it was an easy transition because of the afforementioned brevity.
 ## Technology Used
 ###### JavaScript, jQuery, API's, HTML5, CSS3, Materialize, and SCSS
 ## Features
-###### * Dynamically generated collection of Pokémon from the API
-###### * Modal pop-up with music
-###### * Carousel of cards with revealable properties 
-###### * Search function that automatically adds new cards to carousel and pushes them to the front
-###### * Display Relevant information about Pokémon
+ * Dynamically generated collection of Pokémon from the API
+ * Modal pop-up with music
+ * Carousel of cards with revealable properties 
+ * Search function that automatically adds new cards to carousel and pushes them to the front
+ * Display Relevant information about Pokémon
 
 ## Code Example
 ###### 
