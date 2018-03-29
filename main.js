@@ -96,7 +96,7 @@ function createPokemon(pokemon) {
                         } else if (i === 2) {
                             reference = futureRef[i];
                         } else {};
-                        let card = `<div class="carousel-item z-depth-5" href="${reference}"><div class="card">
+                        let card = `<div class="carousel-item z-depth-5" href="${reference}"><div class="card large">
 						<div class="card-image waves-effect waves-block waves-light">
 						  <img class="activator" src="${ashKetchum.roster[i].pic}">
 						</div>
@@ -125,7 +125,7 @@ function createPokemon(pokemon) {
                 console.log(index);
                 console.log(futureRef[index]);
                 let render = function() {
-                    let card = `<div class="carousel-item z-depth-5" href="${futureRef[index]}"><div class="card">
+                    let card = `<div class="carousel-item z-depth-5" href="${futureRef[index]}"><div class="card large">
                         <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="${ashKetchum.roster[index].pic}">
                         </div>

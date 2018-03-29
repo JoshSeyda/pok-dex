@@ -6,9 +6,17 @@
   max-width: 30%;
 }
 
+nav {
+  padding-right: 5%;
+}
+
 nav form {
   width: 25%;
   margin-right: 0;
+}
+
+nav a .right {
+  margin-right: 10%;
 }
 
 .container .row {
@@ -25,5 +33,6 @@ i.right {
 
 body {
   background-image: url("../photos/pattern0.png");
+  font-family: 'IBM Plex Mono', monospace;
 }
 /*# sourceMappingURL=main.css.map */
